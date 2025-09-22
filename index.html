@@ -6,25 +6,6 @@
   <title>WhatsApp Bonos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src='https://connect.facebook.net/en_US/fbevents.js';
-    s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script');
-    fbq('init', '9808665859255398');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=9808665859255398&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
   
   <style>
     body {
@@ -56,8 +37,8 @@
 
     .background-carousel img {
       position: absolute;
-      width: 80%;   /* reducido al 80% */
-      height: 80%;  /* reducido al 80% */
+      width: 80%;
+      height: 80%;
       object-fit: cover;
       opacity: 0;
       transition: opacity 2s ease-in-out;
@@ -65,7 +46,7 @@
     }
 
     .background-carousel img.active {
-      opacity: 0.7; /* 70% opacidad */
+      opacity: 0.7;
     }
 
     header {
@@ -121,28 +102,32 @@
     }
 
     .whatsapp-button {
-      background-color: #00CC44; /* Verde contrastante */
+      background-color: #00CC44;
       color: #fff;
       padding: 18px 35px;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap; /* permite que se acomode en móvil */
       margin-bottom: 20px;
       font-size: 18px;
       border: none;
       cursor: pointer;
       min-width: 250px;
+      max-width: 320px; /* ancho máximo en móviles */
       box-shadow: 0 0 15px #00CC44, 0 0 30px rgba(0,204,68,0.6);
       animation: glow-green 1.5s infinite alternate;
       transition: all 0.3s ease;
+      text-align: justify; /* texto justificado */
     }
 
     .whatsapp-button i {
       margin-right: 10px;
       font-size: 24px;
+      flex-shrink: 0; /* evita que se achique el ícono */
     }
 
     @keyframes glow-green {
@@ -220,8 +205,6 @@
       25%, 75% { opacity: 0.6; }
     }
 
-    #notif-text.left { margin-left: 0; margin-right: auto; text-align: left; }
-    #notif-text.right { margin-left: auto; margin-right: 0; text-align: right; }
     #notif-text.center { margin-left: auto; margin-right: auto; text-align: center; }
   </style>
 </head>
@@ -273,11 +256,17 @@
     🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
   </div>
 
-  <audio id="slot-audio" autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_781a8c7917.mp3?filename=slot-machine-110357.mp3" type="audio/mp3">
-  </audio>
-
   <script>
+    // Carrusel de fondo
+    const fondos = document.querySelectorAll('.background-carousel img');
+    let fondoActual = 0;
+    setInterval(() => {
+      fondos[fondoActual].classList.remove('active');
+      fondoActual = (fondoActual + 1) % fondos.length;
+      fondos[fondoActual].classList.add('active');
+    }, 8000);
+
+    // Notificaciones dinámicas
     const premios = [
       { nombre: "Mario", monto: "$12.000", ciudad: "Buenos Aires", tiempo: "hace 1 min" },
       { nombre: "Laura", monto: "$15.500", ciudad: "Córdoba", tiempo: "hace 2 min" },
@@ -290,41 +279,20 @@
     function actualizarNotificacion() {
       const notifText = document.getElementById("notif-text");
       const premio = premios[indice % premios.length];
-      const posiciones = ['center'];
-      const posicion = posiciones[indice % posiciones.length];
-
-      notifText.className = '';
-      notifText.classList.add(posicion, 'flash-effect');
-
       notifText.innerHTML = `
         <strong>${premio.nombre}</strong><br>
         🎉 Reclamó su premio de <strong>${premio.monto}</strong><br>
         📍 Desde ${premio.ciudad} · ${premio.tiempo}
       `;
-
-      setTimeout(() => notifText.classList.remove('flash-effect'), 1000);
       indice++;
     }
-
     setInterval(actualizarNotificacion, 5000);
     actualizarNotificacion();
-
-    document.body.addEventListener('click', function () {
-      const audio = document.getElementById('slot-audio');
-      if (audio && audio.paused) { audio.play().catch(() => {}); }
-    });
-
-    // Carrusel de fondo
-    const fondos = document.querySelectorAll('.background-carousel img');
-    let fondoActual = 0;
-    setInterval(() => {
-      fondos[fondoActual].classList.remove('active');
-      fondoActual = (fondoActual + 1) % fondos.length;
-      fondos[fondoActual].classList.add('active');
-    }, 8000); // cambia cada 8 segundos
   </script>
 </body>
 </html>
+
+
 
 
 
