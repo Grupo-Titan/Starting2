@@ -7,6 +7,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script');
+    fbq('init', '9808665859255398');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=9808665859255398&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  
   <style>
     body {
       margin: 0;
@@ -31,22 +50,18 @@
       z-index: -1;
       overflow: hidden;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
 
     .background-carousel img {
       position: absolute;
-      max-width: 80%;   /* Achicado al 80% */
-      max-height: 80%;  /* Mantiene proporción */
-      object-fit: contain;
+      width: 80%;   /* reducido al 80% */
+      height: 80%;  /* reducido al 80% */
+      object-fit: cover;
       opacity: 0;
       transition: opacity 2s ease-in-out;
       margin: auto;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
     }
 
     .background-carousel img.active {
@@ -205,6 +220,8 @@
       25%, 75% { opacity: 0.6; }
     }
 
+    #notif-text.left { margin-left: 0; margin-right: auto; text-align: left; }
+    #notif-text.right { margin-left: auto; margin-right: 0; text-align: right; }
     #notif-text.center { margin-left: auto; margin-right: auto; text-align: center; }
   </style>
 </head>
@@ -273,12 +290,18 @@
     function actualizarNotificacion() {
       const notifText = document.getElementById("notif-text");
       const premio = premios[indice % premios.length];
-      notifText.className = 'center flash-effect';
+      const posiciones = ['center'];
+      const posicion = posiciones[indice % posiciones.length];
+
+      notifText.className = '';
+      notifText.classList.add(posicion, 'flash-effect');
+
       notifText.innerHTML = `
         <strong>${premio.nombre}</strong><br>
         🎉 Reclamó su premio de <strong>${premio.monto}</strong><br>
         📍 Desde ${premio.ciudad} · ${premio.tiempo}
       `;
+
       setTimeout(() => notifText.classList.remove('flash-effect'), 1000);
       indice++;
     }
@@ -298,9 +321,11 @@
       fondos[fondoActual].classList.remove('active');
       fondoActual = (fondoActual + 1) % fondos.length;
       fondos[fondoActual].classList.add('active');
-    }, 8000);
+    }, 8000); // cambia cada 8 segundos
   </script>
 </body>
 </html>
+
+
 
 
