@@ -41,6 +41,7 @@
       overflow-x: hidden;
     }
 
+    /* Fondo carrusel */
     .background-carousel {
       position: fixed;
       top: 0;
@@ -192,6 +193,7 @@
 
 <body>
 
+  <!-- Carrusel de fondo -->
   <div class="background-carousel">
     <img src="fondo1.jpg" class="active" alt="fondo 1">
     <img src="fondo2.jpg" alt="fondo 2">
@@ -208,7 +210,7 @@
   <section class="verified">
     <h2>🎰 Casino Online Licenciado</h2>
     <p class="subtitle">
-      <!-- Reemplazá esto por tu N° de licencia y organismo regulador real -->
+      <!-- Reemplazá esto por tu N° de licencia y organismo regulador real, ej: "Licencia N° XXXX otorgada por [organismo]" -->
     </p>
   </section>
 
@@ -216,7 +218,7 @@
     Te estamos conectando con nuestro equipo vía WhatsApp para activar tu bono.
   </div>
 
-  
+  <a
     class="whatsapp-button"
     href="https://wa.me/595982455162?text=Quiero%20mi%20bono%20del%20100%25"
     target="_blank"
@@ -245,6 +247,7 @@
   </div>
 
   <script>
+    // Carrusel de fondo
     const fondos = document.querySelectorAll('.background-carousel img');
     let fondoActual = 0;
 
@@ -254,13 +257,44 @@
       fondos[fondoActual].classList.add('active');
     }, 8000);
 
+    // Notificaciones dinámicas
     const premios = [
-      { nombre: "Mario", monto: "₲250.000", ciudad: "Ciudad del Este", tiempo: "hace 1 min" },
-      { nombre: "Laura", monto: "₲550.500", ciudad: "Asunción", tiempo: "hace 2 min" },
-      { nombre: "Carlos", monto: "₲180.200", ciudad: "Villarrica", tiempo: "hace 3 min" },
-      { nombre: "Sofía", monto: "₲750.000", ciudad: "Encarnación", tiempo: "hace 4 min" },
-      { nombre: "Pedro", monto: "₲1.000.000", ciudad: "Juan León Mallorquín", tiempo: "hace 5 min" },
-      { nombre: "Ana", monto: "₲450.500", ciudad: "Caacupé", tiempo: "hace 6 min" }
+      {
+        nombre: "Mario",
+        monto: "₲250.000",
+        ciudad: "Ciudad del Este",
+        tiempo: "hace 1 min"
+      },
+      {
+        nombre: "Laura",
+        monto: "₲550.500",
+        ciudad: "Asunción",
+        tiempo: "hace 2 min"
+      },
+      {
+        nombre: "Carlos",
+        monto: "₲180.200",
+        ciudad: "Villarrica",
+        tiempo: "hace 3 min"
+      },
+      {
+        nombre: "Sofía",
+        monto: "₲750.000",
+        ciudad: "Encarnación",
+        tiempo: "hace 4 min"
+      },
+      {
+        nombre: "Pedro",
+        monto: "₲1.000.000",
+        ciudad: "Juan León Mallorquín",
+        tiempo: "hace 5 min"
+      },
+      {
+        nombre: "Ana",
+        monto: "₲450.500",
+        ciudad: "Caacupé",
+        tiempo: "hace 6 min"
+      }
     ];
 
     let indice = 0;
