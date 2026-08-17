@@ -2,7 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>WhatsApp Bonos Paraguay</title>
 
@@ -15,68 +19,6 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   >
-
-
-  <!-- ==========================================
-       META PIXEL
-       REEMPLAZAR PONER_PIXEL_ID_AQUI
-       ========================================== -->
-
-  <script>
-    !function(f,b,e,v,n,t,s) {
-      if (f.fbq) return;
-
-      n = f.fbq = function() {
-        n.callMethod
-          ? n.callMethod.apply(n, arguments)
-          : n.queue.push(arguments);
-      };
-
-      if (!f._fbq) f._fbq = n;
-
-      n.push = n;
-      n.loaded = true;
-      n.version = '2.0';
-      n.queue = [];
-
-      t = b.createElement(e);
-      t.async = true;
-      t.src = v;
-
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s);
-
-    }(
-      window,
-      document,
-      'script',
-      'https://connect.facebook.net/en_US/fbevents.js'
-    );
-
-    /* ===============================
-       PONER ACÁ EL ID DEL PIXEL
-       =============================== */
-
-    fbq('init', '1515796226102460');
-
-    /* Persona que entra a la landing */
-    fbq('track', 'PageView');
-
-  </script>
-
-
-  <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=1515796226102460&ev=PageView&noscript=1"
-      alt=""
-    >
-  </noscript>
-
-  <!-- FIN META PIXEL -->
-
 
   <style>
 
@@ -104,13 +46,12 @@
       padding: 20px 20px 75px;
 
       position: relative;
-
       overflow-x: hidden;
     }
 
 
     /* =============================
-       FONDO
+       FONDO CARRUSEL
        ============================= */
 
     .background-carousel {
@@ -180,6 +121,7 @@
       max-width: 500px;
 
       border: none;
+
       border-top: 2px solid #FFD700;
 
       margin: 20px 0;
@@ -187,7 +129,7 @@
 
 
     /* =============================
-       VERIFICADO
+       TITULO
        ============================= */
 
     .verified {
@@ -243,7 +185,7 @@
 
 
     /* =============================
-       WHATSAPP
+       BOTÓN WHATSAPP
        ============================= */
 
     .whatsapp-button {
@@ -251,7 +193,7 @@
 
       color: #FFFFFF;
 
-      padding: 18px 35px;
+      padding: 18px 32px;
 
       border-radius: 50px;
 
@@ -263,6 +205,8 @@
       align-items: center;
       justify-content: center;
 
+      gap: 10px;
+
       margin-bottom: 20px;
 
       font-size: 18px;
@@ -272,7 +216,7 @@
       cursor: pointer;
 
       width: 100%;
-      max-width: 340px;
+      max-width: 360px;
 
       box-shadow:
         0 0 15px #00CC44,
@@ -300,9 +244,7 @@
 
 
     .whatsapp-button i {
-      margin-right: 10px;
-
-      font-size: 24px;
+      font-size: 27px;
 
       flex-shrink: 0;
     }
@@ -352,46 +294,6 @@
 
       box-shadow:
         0 2px 8px rgba(255,215,0,0.4);
-    }
-
-
-    /* =============================
-       TRUSTPILOT
-       ============================= */
-
-    .trustpilot {
-      width: 100%;
-      max-width: 420px;
-
-      padding: 12px 15px;
-
-      text-align: center;
-
-      color: #FFD700;
-
-      background:
-        rgba(0,0,0,0.55);
-
-      border:
-        1px dashed #FFD700;
-
-      border-radius: 10px;
-
-      margin-bottom: 15px;
-    }
-
-
-    .trustpilot img {
-      display: block;
-
-      margin: 8px auto 0;
-
-      max-width: 120px;
-
-      filter:
-        drop-shadow(
-          0 2px 4px rgba(255,215,0,0.4)
-        );
     }
 
 
@@ -461,6 +363,10 @@
     }
 
 
+    /* =============================
+       CELULARES
+       ============================= */
+
     @media (max-width: 480px) {
 
       body {
@@ -478,6 +384,12 @@
 
       .whatsapp-button {
         font-size: 16px;
+
+        padding: 17px 24px;
+      }
+
+      .whatsapp-button i {
+        font-size: 25px;
       }
 
     }
@@ -490,9 +402,9 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =============================
        FONDOS
-       ========================= -->
+       ============================= -->
 
   <div class="background-carousel">
 
@@ -520,9 +432,9 @@
   </div>
 
 
-  <!-- =========================
+  <!-- =============================
        CABECERA
-       ========================= -->
+       ============================= -->
 
   <header>
 
@@ -535,6 +447,10 @@
 
   <hr>
 
+
+  <!-- =============================
+       TITULO
+       ============================= -->
 
   <section class="verified">
 
@@ -549,6 +465,10 @@
   </section>
 
 
+  <!-- =============================
+       MENSAJE
+       ============================= -->
+
   <div class="message">
 
     Te estamos conectando con nuestro equipo
@@ -557,175 +477,67 @@
   </div>
 
 
-  <!-- =========================
-       WHATSAPP
-       SOLO CONTACT.
-       NO PURCHASE.
-       ========================= -->
+  <!-- =============================
+       BOTÓN WHATSAPP
+       ============================= -->
 
   <a
     class="whatsapp-button"
 
-    href="https://wa.me/5491154075676?text=Quiero%20consultar%20por%20el%20bono%20del%20100%25"
+    href="https://wa.me/5491154075676?text=Quiero%20mi%20bono%20de%20100%25"
 
     target="_blank"
 
     rel="noopener noreferrer"
-
-    onclick="registrarContactoMeta()"
   >
 
     <i class="fab fa-whatsapp"></i>
 
-    ¡CONSULTAR POR WHATSAPP!
+    <span>
+      Quiero mi bono de 100%
+    </span>
 
   </a>
 
 
+  <!-- =============================
+       ATENCIÓN
+       ============================= -->
+
   <div class="clientes">
+
     👥 Atención personalizada
+
   </div>
 
+
+  <!-- =============================
+       AVISOS
+       ============================= -->
 
   <div id="notif-text"></div>
 
 
+  <!-- =============================
+       FOOTER
+       ============================= -->
+
   <div class="footer">
 
-    🎁 Consultá promociones disponibles por WhatsApp
+    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
 
   </div>
 
 
-
-  <!-- ============================================
+  <!-- =============================
        JAVASCRIPT
-       ============================================ -->
+       ============================= -->
 
   <script>
 
-
-    /* =========================================
-       CONTACT
-       SE DISPARA AL TOCAR WHATSAPP
-       ========================================= */
-
-    function registrarContactoMeta() {
-
-      if (typeof fbq === 'function') {
-
-        fbq(
-          'track',
-          'Contact',
-          {
-            content_name: 'WhatsApp Paraguay'
-          }
-        );
-
-        console.log(
-          'Meta Pixel: Contact enviado'
-        );
-
-      }
-
-    }
-
-
-
-    /* =========================================
-       PURCHASE PARAGUAY
-       MONEDA = PYG
-
-       IMPORTANTE:
-       NO SE EJECUTA AUTOMÁTICAMENTE.
-
-       Se llama solamente cuando una compra
-       fue realmente confirmada.
-
-       EJEMPLO:
-
-       registrarPurchasePYG(
-         100000,
-         "VENTA-12345"
-       );
-
-       Eso enviaría:
-
-       Purchase
-       value: 100000
-       currency: PYG
-       ========================================= */
-
-    function registrarPurchasePYG(
-      valor,
-      eventId = null
-    ) {
-
-      const monto =
-        Number(valor);
-
-      if (
-        !Number.isFinite(monto) ||
-        monto <= 0
-      ) {
-
-        console.error(
-          'Purchase cancelado: monto inválido'
-        );
-
-        return null;
-
-      }
-
-
-      const identificador =
-        eventId ||
-        (
-          'purchase-py-' +
-          Date.now() +
-          '-' +
-          Math.random()
-            .toString(36)
-            .substring(2, 9)
-        );
-
-
-      if (typeof fbq === 'function') {
-
-        fbq(
-          'track',
-          'Purchase',
-
-          {
-            value: monto,
-            currency: 'PYG'
-          },
-
-          {
-            eventID: identificador
-          }
-        );
-
-
-        console.log(
-          'Meta Purchase enviado:',
-          monto,
-          'PYG',
-          identificador
-        );
-
-      }
-
-
-      return identificador;
-
-    }
-
-
-
-    /* =========================================
-       CARRUSEL
-       ========================================= */
+    /* =============================
+       CARRUSEL DE FONDO
+       ============================= */
 
     const fondos =
       document.querySelectorAll(
@@ -757,13 +569,9 @@
     }
 
 
-
-    /* =========================================
-       AVISOS VISUALES
-
-       Usalos únicamente para información
-       real/verificable.
-       ========================================= */
+    /* =============================
+       AVISOS DINÁMICOS
+       ============================= */
 
     const avisos = [
 
@@ -795,33 +603,26 @@
           'notif-text'
         );
 
-
       const aviso =
         avisos[
           indice % avisos.length
         ];
 
-
       notifText.innerHTML =
         aviso.texto;
-
 
       indice++;
 
     }
 
-
     actualizarNotificacion();
-
 
     setInterval(
       actualizarNotificacion,
       5000
     );
 
-
   </script>
-
 
 </body>
 </html>
