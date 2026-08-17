@@ -1,320 +1,827 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WhatsApp Bonos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Meta Pixel Code -->
+  <title>WhatsApp Bonos Paraguay</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+
+  <!-- ==========================================
+       META PIXEL
+       REEMPLAZAR PONER_PIXEL_ID_AQUI
+       ========================================== -->
+
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src='https://connect.facebook.net/en_US/fbevents.js';
-    s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script');
-    fbq('init', '872723741799365');
+    !function(f,b,e,v,n,t,s) {
+      if (f.fbq) return;
+
+      n = f.fbq = function() {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+
+      if (!f._fbq) f._fbq = n;
+
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+
+    }(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
+    );
+
+    /* ===============================
+       PONER ACÁ EL ID DEL PIXEL
+       =============================== */
+
+    fbq('init', '1515796226102460');
+
+    /* Persona que entra a la landing */
     fbq('track', 'PageView');
+
   </script>
 
+
   <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=872723741799365&ev=PageView&noscript=1"/>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1515796226102460&ev=PageView&noscript=1"
+      alt=""
+    >
   </noscript>
-  <!-- End Meta Pixel Code -->
+
+  <!-- FIN META PIXEL -->
+
 
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
     body {
       margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
+
       background-color: #000000;
       color: #FFD700;
+
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+
+      padding: 20px 20px 75px;
+
       position: relative;
+
       overflow-x: hidden;
     }
 
-    /* Fondo carrusel */
+
+    /* =============================
+       FONDO
+       ============================= */
+
     .background-carousel {
       position: fixed;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 100%;
+
       z-index: -1;
+
       overflow: hidden;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      background: #000000;
     }
+
 
     .background-carousel img {
       position: absolute;
-      width: 80%;
-      height: 80%;
+
+      width: 100%;
+      height: 100%;
+
       object-fit: cover;
+
       opacity: 0;
+
       transition: opacity 2s ease-in-out;
-      margin: auto;
     }
 
+
     .background-carousel img.active {
-      opacity: 0.7;
+      opacity: 0.55;
     }
+
+
+    /* =============================
+       HEADER
+       ============================= */
 
     header {
       margin-top: 30px;
       text-align: center;
     }
 
+
     .logo-text {
       color: #FFD700;
+
       font-weight: 700;
       font-size: 28px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+
+      text-shadow:
+        0 2px 5px rgba(0,0,0,0.7),
+        0 0 15px rgba(255,215,0,0.2);
     }
+
 
     hr {
       width: 100%;
+      max-width: 500px;
+
       border: none;
       border-top: 2px solid #FFD700;
+
       margin: 20px 0;
     }
+
+
+    /* =============================
+       VERIFICADO
+       ============================= */
 
     .verified {
       text-align: center;
     }
 
+
     .verified h2 {
       font-size: 22px;
+
       margin: 10px 0;
+
       color: #FFD700;
-      text-shadow: 1px 1px 2px #000;
+
+      text-shadow: 1px 1px 2px #000000;
     }
+
 
     .verified .subtitle {
       color: #FFD700;
+
       font-weight: 600;
+
       opacity: 0.9;
     }
 
+
+    /* =============================
+       MENSAJE
+       ============================= */
+
     .message {
-      background: #333300;
+      width: 100%;
+      max-width: 420px;
+
+      background: rgba(51,51,0,0.93);
+
       padding: 18px;
+
       border-radius: 12px;
+
       margin: 20px 0;
+
       font-size: 16px;
+
       color: #FFD700;
-      box-shadow: 0 4px 10px rgba(255,215,0,0.3);
+
+      box-shadow:
+        0 4px 10px rgba(255,215,0,0.3);
+
       text-align: center;
     }
+
+
+    /* =============================
+       WHATSAPP
+       ============================= */
 
     .whatsapp-button {
       background-color: #00CC44;
-      color: #fff;
+
+      color: #FFFFFF;
+
       padding: 18px 35px;
+
       border-radius: 50px;
-      font-weight: bold;
+
+      font-weight: 700;
+
       text-decoration: none;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
+
       margin-bottom: 20px;
+
       font-size: 18px;
+
       border: none;
+
       cursor: pointer;
-      min-width: 250px;
-      max-width: 320px;
-      box-shadow: 0 0 15px #00CC44, 0 0 30px rgba(0,204,68,0.6);
-      animation: glow-green 1.5s infinite alternate;
-      transition: all 0.3s ease;
+
+      width: 100%;
+      max-width: 340px;
+
+      box-shadow:
+        0 0 15px #00CC44,
+        0 0 30px rgba(0,204,68,0.6);
+
+      animation:
+        glow-green 1.5s infinite alternate;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
       text-align: center;
     }
+
+
+    .whatsapp-button:hover {
+      transform: scale(1.03);
+    }
+
+
+    .whatsapp-button:active {
+      transform: scale(0.98);
+    }
+
 
     .whatsapp-button i {
       margin-right: 10px;
+
       font-size: 24px;
+
       flex-shrink: 0;
     }
 
+
     @keyframes glow-green {
+
       0% {
-        box-shadow: 0 0 10px #00CC44, 0 0 20px #00FF55;
+        box-shadow:
+          0 0 10px #00CC44,
+          0 0 20px #00FF55;
       }
 
       50% {
-        box-shadow: 0 0 20px #00CC44, 0 0 40px #00FF55;
+        box-shadow:
+          0 0 20px #00CC44,
+          0 0 40px #00FF55;
       }
 
       100% {
-        box-shadow: 0 0 15px #00CC44, 0 0 30px #00FF55;
+        box-shadow:
+          0 0 15px #00CC44,
+          0 0 30px #00FF55;
       }
+
     }
+
+
+    /* =============================
+       CLIENTES
+       ============================= */
 
     .clientes {
       background-color: #FFD700;
-      color: #000;
+
+      color: #000000;
+
       padding: 12px 20px;
+
       border-radius: 30px;
+
       font-weight: 600;
+
       margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(255,215,0,0.4);
+
+      text-align: center;
+
+      box-shadow:
+        0 2px 8px rgba(255,215,0,0.4);
     }
+
+
+    /* =============================
+       TRUSTPILOT
+       ============================= */
+
+    .trustpilot {
+      width: 100%;
+      max-width: 420px;
+
+      padding: 12px 15px;
+
+      text-align: center;
+
+      color: #FFD700;
+
+      background:
+        rgba(0,0,0,0.55);
+
+      border:
+        1px dashed #FFD700;
+
+      border-radius: 10px;
+
+      margin-bottom: 15px;
+    }
+
 
     .trustpilot img {
       display: block;
-      margin: 5px auto 0;
+
+      margin: 8px auto 0;
+
       max-width: 120px;
-      filter: drop-shadow(0 2px 4px rgba(255,215,0,0.4));
+
+      filter:
+        drop-shadow(
+          0 2px 4px rgba(255,215,0,0.4)
+        );
     }
+
+
+    /* =============================
+       NOTIFICACIONES
+       ============================= */
+
+    #notif-text {
+      width: 100%;
+      max-width: 420px;
+
+      background:
+        rgba(51,51,0,0.93);
+
+      color: #FFD700;
+
+      padding: 15px 20px;
+
+      border-radius: 12px;
+
+      font-size: 16px;
+
+      margin: 15px 0;
+
+      text-align: center;
+
+      box-shadow:
+        0 4px 12px rgba(255,215,0,0.25);
+
+      transition: all 0.5s ease;
+    }
+
+
+    /* =============================
+       FOOTER
+       ============================= */
 
     .footer {
       position: fixed;
+
       bottom: 0;
+      left: 0;
+
       width: 100%;
-      background: linear-gradient(to right, #FFD700, #FFA500);
-      color: #000;
+
+      background:
+        linear-gradient(
+          to right,
+          #FFD700,
+          #FFA500
+        );
+
+      color: #000000;
+
       text-align: center;
+
       padding: 12px;
-      font-weight: bold;
+
+      font-weight: 700;
+
       font-size: 14px;
-      box-shadow: 0 -2px 8px rgba(255,215,0,0.4);
+
+      box-shadow:
+        0 -2px 8px rgba(255,215,0,0.4);
+
+      z-index: 20;
     }
+
+
+    @media (max-width: 480px) {
+
+      body {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .logo-text {
+        font-size: 24px;
+      }
+
+      .verified h2 {
+        font-size: 20px;
+      }
+
+      .whatsapp-button {
+        font-size: 16px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- Carrusel de fondo -->
+
+  <!-- =========================
+       FONDOS
+       ========================= -->
+
   <div class="background-carousel">
-    <img src="fondo1.jpg" class="active" alt="fondo 1">
-    <img src="fondo2.jpg" alt="fondo 2">
-    <img src="fondo3.jpg" alt="fondo 3">
-    <img src="fondo4.jpg" alt="fondo 4">
+
+    <img
+      src="fondo1.jpg"
+      class="active"
+      alt=""
+    >
+
+    <img
+      src="fondo2.jpg"
+      alt=""
+    >
+
+    <img
+      src="fondo3.jpg"
+      alt=""
+    >
+
+    <img
+      src="fondo4.jpg"
+      alt=""
+    >
+
   </div>
+
+
+  <!-- =========================
+       CABECERA
+       ========================= -->
 
   <header>
-    <div class="logo-text">WhatsApp Bonos</div>
+
+    <div class="logo-text">
+      WhatsApp Bonos Paraguay
+    </div>
+
   </header>
 
-  <hr />
+
+  <hr>
+
 
   <section class="verified">
-    <h2>🎰 Casino Online Licenciado</h2>
+
+    <h2>
+      🎰 Atención Online
+    </h2>
+
     <p class="subtitle">
-      <!-- Reemplazá esto por tu N° de licencia y organismo regulador real, ej: "Licencia N° XXXX otorgada por [organismo]" -->
+      Contactanos por WhatsApp
     </p>
+
   </section>
 
+
   <div class="message">
-    Te estamos conectando con nuestro equipo vía WhatsApp para activar tu bono.
+
+    Te estamos conectando con nuestro equipo
+    vía WhatsApp para consultar promociones disponibles.
+
   </div>
+
+
+  <!-- =========================
+       WHATSAPP
+       SOLO CONTACT.
+       NO PURCHASE.
+       ========================= -->
 
   <a
     class="whatsapp-button"
-    href="https://wa.me/595982455162?text=Quiero%20mi%20bono%20del%20100%25"
+
+    href="https://wa.me/5491154075676?text=Quiero%20consultar%20por%20el%20bono%20del%20100%25"
+
     target="_blank"
-    onclick="fbq('track', 'Contact', {content_name: 'Bono 100%'}); fbq('track', 'Lead', {content_name: 'Bono 100%'})"
+
+    rel="noopener noreferrer"
+
+    onclick="registrarContactoMeta()"
   >
+
     <i class="fab fa-whatsapp"></i>
-    ¡QUIERO MI BONO DEL 100%!
+
+    ¡CONSULTAR POR WHATSAPP!
+
   </a>
 
+
   <div class="clientes">
-    👥 +10.000 clientes activos
+    👥 Atención personalizada
   </div>
 
-  <div class="trustpilot">
-    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en Trustpilot<br/>
-    <img
-      src="https://logowik.com/content/uploads/images/trustpilot-stars9095.jpg"
-      alt="Trustpilot"
-    />
-  </div>
 
   <div id="notif-text"></div>
 
+
   <div class="footer">
-    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
+
+    🎁 Consultá promociones disponibles por WhatsApp
+
   </div>
 
+
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+
   <script>
-    // Carrusel de fondo
-    const fondos = document.querySelectorAll('.background-carousel img');
+
+
+    /* =========================================
+       CONTACT
+       SE DISPARA AL TOCAR WHATSAPP
+       ========================================= */
+
+    function registrarContactoMeta() {
+
+      if (typeof fbq === 'function') {
+
+        fbq(
+          'track',
+          'Contact',
+          {
+            content_name: 'WhatsApp Paraguay'
+          }
+        );
+
+        console.log(
+          'Meta Pixel: Contact enviado'
+        );
+
+      }
+
+    }
+
+
+
+    /* =========================================
+       PURCHASE PARAGUAY
+       MONEDA = PYG
+
+       IMPORTANTE:
+       NO SE EJECUTA AUTOMÁTICAMENTE.
+
+       Se llama solamente cuando una compra
+       fue realmente confirmada.
+
+       EJEMPLO:
+
+       registrarPurchasePYG(
+         100000,
+         "VENTA-12345"
+       );
+
+       Eso enviaría:
+
+       Purchase
+       value: 100000
+       currency: PYG
+       ========================================= */
+
+    function registrarPurchasePYG(
+      valor,
+      eventId = null
+    ) {
+
+      const monto =
+        Number(valor);
+
+      if (
+        !Number.isFinite(monto) ||
+        monto <= 0
+      ) {
+
+        console.error(
+          'Purchase cancelado: monto inválido'
+        );
+
+        return null;
+
+      }
+
+
+      const identificador =
+        eventId ||
+        (
+          'purchase-py-' +
+          Date.now() +
+          '-' +
+          Math.random()
+            .toString(36)
+            .substring(2, 9)
+        );
+
+
+      if (typeof fbq === 'function') {
+
+        fbq(
+          'track',
+          'Purchase',
+
+          {
+            value: monto,
+            currency: 'PYG'
+          },
+
+          {
+            eventID: identificador
+          }
+        );
+
+
+        console.log(
+          'Meta Purchase enviado:',
+          monto,
+          'PYG',
+          identificador
+        );
+
+      }
+
+
+      return identificador;
+
+    }
+
+
+
+    /* =========================================
+       CARRUSEL
+       ========================================= */
+
+    const fondos =
+      document.querySelectorAll(
+        '.background-carousel img'
+      );
+
+
     let fondoActual = 0;
 
-    setInterval(() => {
-      fondos[fondoActual].classList.remove('active');
-      fondoActual = (fondoActual + 1) % fondos.length;
-      fondos[fondoActual].classList.add('active');
-    }, 8000);
 
-    // Notificaciones dinámicas
-    const premios = [
+    if (fondos.length > 1) {
+
+      setInterval(() => {
+
+        fondos[fondoActual]
+          .classList.remove('active');
+
+
+        fondoActual =
+          (fondoActual + 1) %
+          fondos.length;
+
+
+        fondos[fondoActual]
+          .classList.add('active');
+
+      }, 8000);
+
+    }
+
+
+
+    /* =========================================
+       AVISOS VISUALES
+
+       Usalos únicamente para información
+       real/verificable.
+       ========================================= */
+
+    const avisos = [
+
       {
-        nombre: "Mario",
-        monto: "₲250.000",
-        ciudad: "Ciudad del Este",
-        tiempo: "hace 1 min"
+        texto:
+          "📲 Atención disponible por WhatsApp"
       },
+
       {
-        nombre: "Laura",
-        monto: "₲550.500",
-        ciudad: "Asunción",
-        tiempo: "hace 2 min"
+        texto:
+          "🇵🇾 Atención para clientes de Paraguay"
       },
+
       {
-        nombre: "Carlos",
-        monto: "₲180.200",
-        ciudad: "Villarrica",
-        tiempo: "hace 3 min"
-      },
-      {
-        nombre: "Sofía",
-        monto: "₲750.000",
-        ciudad: "Encarnación",
-        tiempo: "hace 4 min"
-      },
-      {
-        nombre: "Pedro",
-        monto: "₲1.000.000",
-        ciudad: "Juan León Mallorquín",
-        tiempo: "hace 5 min"
-      },
-      {
-        nombre: "Ana",
-        monto: "₲450.500",
-        ciudad: "Caacupé",
-        tiempo: "hace 6 min"
+        texto:
+          "⚡ Consultá promociones disponibles"
       }
+
     ];
+
 
     let indice = 0;
 
-    function actualizarNotificacion() {
-      const notifText = document.getElementById("notif-text");
-      const premio = premios[indice % premios.length];
 
-      notifText.innerHTML = `
-        <strong>${premio.nombre}</strong><br>
-        🎉 Reclamó su premio de <strong>${premio.monto}</strong><br>
-        📍 Desde ${premio.ciudad} · ${premio.tiempo}
-      `;
+    function actualizarNotificacion() {
+
+      const notifText =
+        document.getElementById(
+          'notif-text'
+        );
+
+
+      const aviso =
+        avisos[
+          indice % avisos.length
+        ];
+
+
+      notifText.innerHTML =
+        aviso.texto;
+
 
       indice++;
+
     }
 
-    setInterval(actualizarNotificacion, 5000);
+
     actualizarNotificacion();
+
+
+    setInterval(
+      actualizarNotificacion,
+      5000
+    );
+
+
   </script>
+
 
 </body>
 </html>
